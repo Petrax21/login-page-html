@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h2>Kayıt Ol</h2>
+<form id="registerForm">
+    <label>Ad:</label><br>
+    <input type="text" name="first_name" required><br>
+
+    <label>Soyad:</label><br>
+    <input type="text" name="last_name" required><br>
+
+    <label>E-posta:</label><br>
+    <input type="email" name="email" required><br>
+
+    <label>Telefon:</label><br>
+    <input type="text" name="phone" required><br>
+
+    <label>Şifre:</label><br>
+    <input type="password" name="password" required><br>
+
+    <button type="submit">Kayıt Ol</button>
+</form>
+
+<script>
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData.entries());
+
+        const response = await fetch('/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+
+        if (response.ok) {
+            window.location.href = '/verify.html';
+        }
+    });
+</script>
+</body>
+</html>
