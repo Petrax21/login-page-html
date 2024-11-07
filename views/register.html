@@ -4,28 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kayıt Ol</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../views/css/styles.css">
 </head>
 <body>
-<h2>Kayıt Ol</h2>
-<form id="registerForm">
-    <label>Ad:</label><br>
-    <input type="text" name="first_name" required><br>
 
-    <label>Soyad:</label><br>
-    <input type="text" name="last_name" required><br>
+<div class="blur">
+    <div class="title">
+        Kayıt Ol
+    </div>
+</div>
 
-    <label>E-posta:</label><br>
-    <input type="email" name="email" required><br>
+<div class="wrapper">
+    <form class="registerForm" id="registerForm">
 
-    <label>Telefon:</label><br>
-    <input type="text" name="phone" required><br>
+        <div class="field"><br>
+            <input type="text" name="first_name" required placeholder="Ad"><br>
+        </div>
 
-    <label>Şifre:</label><br>
-    <input type="password" name="password" required><br>
+        <div class="field" style="top: 2%">
+            <br>
+            <input class="lbox" type="text" name="last_name" required placeholder="Soyad"><br>
+        </div>
 
-    <button type="submit">Kayıt Ol</button>
-</form>
+        <div class="field" style="top: 4%">
+            <br>
+            <input type="email" name="email" required placeholder="E-posta"><br>
+        </div>
+
+        <div class="field" style="top: 6%">
+            <br>
+            <input type="text" name="phone" required placeholder="Telefon"><br>
+        </div>
+
+        <div class="field" style="top: 8%">
+            <br>
+            <input type="password" name="password" required placeholder="Şifre"><br>
+        </div>
+
+
+        <div class="field" style="top: 10%">
+            <input type="submit" value="login">
+        </div>
+
+        <div class="signup-link" style="">
+            Hesabın var mı? <a href="../views/login.html">Giriş Yap</a>
+        </div>
+
+    </form>
+</div>
 
 <script>
     document.getElementById('registerForm').addEventListener('submit', async (e) => {
